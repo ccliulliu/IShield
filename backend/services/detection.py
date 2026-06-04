@@ -96,8 +96,8 @@ def hybrid_detect(text: str, use_cache: bool = True) -> DetectionResult:
             "alert":       rule_alert,
             "confidence":  rule_conf,
             "hit":         rule_hit,
-            "all_hits":    [h.get("pattern", h.get("description", h.get("id", ""))) for h in rule_hits] if rule_hits else [],
-            "categories":   list(set(h.get("category", "") for h in rule_hits)),
+            "all_hits":    rule_hits if rule_hits else [],
+            "categories":   list(set(h.get("category", "") for h in rule_hits if isinstance(h, dict))),
         },
         "semantic": {
             "alert":      semantic_alert,

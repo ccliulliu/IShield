@@ -119,8 +119,11 @@ def detect():
 
         # 恶意样本自动归档
         if is_malicious:
-            rule_hits = confidence_data.get("rule", {}).get("all_hits", [])
-            rule_categories = list({r.get("category", "未知") for r in rule_hits})
+            rule_meta = confidence_data.get("rule", {})
+            rule_hits = rule_meta.get("all_hits", [])
+            rule_categories = rule_meta.get("categories") or [
+                r.get("category", "未知") for r in rule_hits if isinstance(r, dict)
+            ]
             add_sample(
                 text=text,
                 reason=reason or "",

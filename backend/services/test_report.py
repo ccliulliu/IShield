@@ -21,7 +21,10 @@ def load_test_suite(path: str = None) -> List[dict]:
     if path is None:
         path = os.path.join(os.path.dirname(__file__), "..", "data", "test_suite.json")
     with open(path, encoding="utf-8") as f:
-        return json.load(f)
+        data = json.load(f)
+    if isinstance(data, list):
+        return data
+    return data.get("test_cases", [])
 
 
 def run_test_case(case: dict) -> dict:

@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-06-04 23:04:24",
+  "backend": "http://127.0.0.1:5000",
+  "scenarios": [
+    {
+      "name": "场景一：提示注入与越狱",
+      "report": "e:\\IShield\\attacks\\reports\\scenario1_prompt_injection_report.json",
+      "total": 30,
+      "blocked": 5,
+      "block_rate_pct": 16.67,
+      "exit_code": 2
+    },
+    {
+      "name": "场景二：工具调用劫持",
+      "report": "e:\\IShield\\attacks\\reports\\scenario2_tool_hijacking_report.json",
+      "total": 31,
+      "blocked": 29,
+      "block_rate_pct": 93.55,
+      "exit_code": 0
+    },
+    {
+      "name": "场景三：记忆中毒",
+      "report": "e:\\IShield\\attacks\\reports\\scenario3_memory_poisoning_report.json",
+      "total": 38,
+      "blocked": 11,
+      "block_rate_pct": 28.95,
+      "exit_code": 2
+    }
+  ],
+  "overall": {
+    "total": 99,
+    "blocked": 45,
+    "block_rate_pct": 45.45
+  }
+}
